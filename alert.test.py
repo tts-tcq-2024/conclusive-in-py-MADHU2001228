@@ -1,4 +1,7 @@
 import unittest
+from classify_temperature_breach import classify_temperature_breach
+from infer_breach import infer_breach
+from check_and_alert import check_and_alert
 import typewise_alert
 
 
