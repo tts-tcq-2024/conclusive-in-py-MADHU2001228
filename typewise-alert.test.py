@@ -1,5 +1,5 @@
 import unittest
-from breach_classify import infer_breach
+from infer_breach import infer_breach
 
 class TestInferBreach(unittest.TestCase):
     
