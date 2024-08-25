@@ -56,6 +56,12 @@ class TestInferBreach(unittest.TestCase):
         self.assertEqual(infer_breach(1e6, 0, 1e6), 'NORMAL')
         self.assertEqual(infer_breach(-1e6, 0, 1e6), 'TOO_LOW')
         self.assertEqual(infer_breach(2e6, 0, 1e6), 'TOO_HIGH')
+    def test_small_increments(self):
+        # Testing small increments around the limits
+        self.assertEqual(infer_breach(49.999, 50, 100), 'TOO_LOW')
+        self.assertEqual(infer_breach(50.001, 50, 100), 'NORMAL')
+        self.assertEqual(infer_breach(99.999, 50, 100), 'NORMAL')
+        self.assertEqual(infer_breach(100.001, 50, 100), 'TOO_HIGH')
 
 if __name__ == '__main__':
     unittest.main()
